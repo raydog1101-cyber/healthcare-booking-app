@@ -38,7 +38,7 @@ jobs:
         run: grep -q "Healthcare Appointment Login" index.html
 
       - name: Check login button exists
-        : grep -q "<button" index.html
+        run: grep -q "<button" index.html
 
       - name: Check CSS file is linked
         run: grep -q "style.css" index.html
