@@ -25,3 +25,20 @@ jobs:
 
       - name: Build check
         run: echo "Static HTML project - no build required"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check login heading exists
+        run: grep -q "Healthcare Appointment Login" index.html
+
+      - name: Check login button exists
+        run: grep -q "<button" index.html
+
+      - name: Check CSS file is linked
+        run: grep -q "style.css" index.html
